@@ -38,7 +38,7 @@ void positiveBlue(){
 }
 
 void positiveRed(){
-      chassis.setPose(-50.932,-58.899,90);
+      chassis.setPose(-50.932,-58.899,270);
     chassis.moveToPoint(-23, -58.899, 1000, {.forwards = false}); //move forward until align with ring
     chassis.moveToPoint(-7.581, -50.932, 1000,{.forwards = false, .maxSpeed = 70}); //move toward until mogo
     chassis.turnToPoint(-4.246,-49.45, 600, {.forwards = false});
@@ -54,14 +54,14 @@ void positiveRed(){
     twoStage.brake();
     intake.brake();  //stop intake
     clamp.set_value(false);
-    chassis.turnToPoint(-23.396, -27.298, 600, {.forwards= false});
-    chassis.moveToPoint(-23.396, -23.696, 1000, {.forwards=false, .maxSpeed=75});
+    chassis.turnToPoint(-19.819, -27.298, 600, {.forwards= false});
+    chassis.moveToPoint(-19.819, -23.696, 1000, {.forwards=false, .maxSpeed=75});
     pros::delay(1000);
     clamp.set_value(true);
     pros::delay(200);
     twoStage.move(127);
     intake.move(127);
-    pros::delay(700);
+    pros::delay(1500);
     chassis.moveToPoint(-14.393, -10.342, 1000, {.forwards =false, .maxSpeed=70});
     pros::delay(500);
     twoStage.brake();
