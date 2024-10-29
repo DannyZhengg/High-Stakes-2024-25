@@ -20,5 +20,8 @@ extern pros::adi::DigitalOut piston;
 // Inertial Sensor
 extern pros::Imu imu;
 
+//Sensors
+extern pros::Rotation ladyBrown;
+
 // LemLib chassis object
 extern lemlib::Chassis chassis;

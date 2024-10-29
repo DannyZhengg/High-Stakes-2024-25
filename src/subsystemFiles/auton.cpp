@@ -1,43 +1,79 @@
 #include "main.h"
+#include "subsystemHeaders/global.hpp"
 
 //chassis.waitUntilDone();
 
 void positiveBlue(){
-    chassis.setPose(51,-59, 90); //Start
-    clamp.set_value(true);  // open mogo mech
-    chassis.moveToPoint(23.821, -59, 1000, {.forwards = false, .maxSpeed = 90}); //move forward until align with ring
-    chassis.moveToPoint(1.097, -47.96839, 1500, {.forwards = false, .maxSpeed = 75}); //move toward until mogo
-    pros::delay(1000); //wait 1 seconds
-    clamp.set_value(false); // close mogo mech
-    intake.move(126); //spin intake
-    twoStage.move(-126);
-    pros::delay(1000); // wait .8 seconds
-    chassis.moveToPoint(23, -59.825,1000, {.maxSpeed=60}); //move back to align with ring
-    chassis.turnToHeading(0, 600); //turn the robot so  intake face ring
-    clamp.set_value(true); // release mogo
+    chassis.setPose(50.932,-58.899,90);
+    chassis.moveToPoint(23, -58.899, 1000, {.forwards = false}); //move forward until align with ring
+    chassis.moveToPoint(7.581, -50.932, 1000,{.forwards = false, .maxSpeed = 70}); //move toward until mogo
+    chassis.turnToPoint(4.246,-49.45, 600, {.forwards = false});
+    chassis.moveToPoint(2.949,-48.895, 800, {.forwards =false, .maxSpeed=60});
+    pros::delay(400);
+    clamp.set_value(true);
+    pros::delay(200);
     twoStage.move(127);
-    intake.move(-127); //spin intake
-    chassis.moveToPoint(22.217,-39.446,1000, {.maxSpeed=70}); //move forward to intake ring
-    pros::delay(1000); //stop for 1 second
+    intake.move(127);
+    chassis.turnToPoint(23.396,-44.404, 600);
+    chassis.moveToPoint(23.097, -45.904, 1000,{.maxSpeed=80});
+    pros::delay(1000);
     twoStage.brake();
     intake.brake();  //stop intake
-    chassis.turnToHeading(180, 600);
-    chassis.moveToPoint(22.217, -23.514, 1000, {.forwards = false, .maxSpeed = 60}); //move toward mogo
-    pros::delay(1000); //stop for .8 second
-    clamp.set_value(false); // clamp mogo
+    clamp.set_value(false);
+    chassis.turnToPoint(23.396, -27.298, 600, {.forwards= false});
+    chassis.moveToPoint(23.396, -23.696, 1000, {.forwards=false, .maxSpeed=75});
+    pros::delay(1000);
+    clamp.set_value(true);
+    pros::delay(200);
     twoStage.move(127);
-    intake.move(127); //spin intake to collect ring
-    pros::delay(1500);
+    intake.move(127);
+    pros::delay(700);
+    chassis.moveToPoint(14.393, -10.342, 1000, {.forwards =false, .maxSpeed=70});
+    pros::delay(500);
     twoStage.brake();
-    intake.brake(); //stop intake after 2 seconds
-    chassis.moveToPoint(13.558, -10.907, 1000, {.forwards=false, .maxSpeed=60});
+    intake.brake();  //stop intake
+    lift.move(-100);
+    pros::delay(100);
+    lift.brake();
 }
 
 void positiveRed(){
-    chassis.setPose(-51,-59, 270); //Start
+      chassis.setPose(-50.932,-58.899,90);
+    chassis.moveToPoint(-23, -58.899, 1000, {.forwards = false}); //move forward until align with ring
+    chassis.moveToPoint(-7.581, -50.932, 1000,{.forwards = false, .maxSpeed = 70}); //move toward until mogo
+    chassis.turnToPoint(-4.246,-49.45, 600, {.forwards = false});
+    chassis.moveToPoint(-2.949,-48.895, 800, {.forwards =false, .maxSpeed=60});
+    pros::delay(400);
+    clamp.set_value(true);
+    pros::delay(200);
+    twoStage.move(127);
+    intake.move(127);
+    chassis.turnToPoint(-23.396,-44.404, 600);
+    chassis.moveToPoint(-23.097, -45.904, 1000,{.maxSpeed=80});
+    pros::delay(1000);
+    twoStage.brake();
+    intake.brake();  //stop intake
+    clamp.set_value(false);
+    chassis.turnToPoint(-23.396, -27.298, 600, {.forwards= false});
+    chassis.moveToPoint(-23.396, -23.696, 1000, {.forwards=false, .maxSpeed=75});
+    pros::delay(1000);
+    clamp.set_value(true);
+    pros::delay(200);
+    twoStage.move(127);
+    intake.move(127);
+    pros::delay(700);
+    chassis.moveToPoint(-14.393, -10.342, 1000, {.forwards =false, .maxSpeed=70});
+    pros::delay(500);
+    twoStage.brake();
+    intake.brake();  //stop intake
+    lift.move(-100);
+    pros::delay(100);
+    lift.brake();
+    /*
+        chassis.setPose(-51,-59, 270); //Start
     clamp.set_value(true);  // open mogo mech
     chassis.moveToPoint(-23.821, -59, 1000, {.forwards = false, .maxSpeed = 90}); //move forward until align with ring
-    chassis.moveToPoint(-1.685, -48.225, 1500, {.forwards = false, .maxSpeed = 65}); //move toward until mogo
+    chassis.moveToPoint(-3.313, -48.605, 1500, {.forwards = false, .maxSpeed = 75}); //move toward until mogo
     pros::delay(1000); //wait 1 seconds
     clamp.set_value(false); // close mogo mech
     intake.move(127); //spin intake
@@ -47,12 +83,12 @@ void positiveRed(){
     chassis.turnToHeading(0, 600); //turn the robot so  intake face ring
     clamp.set_value(true); // release mogo
     intake.move(-127); //spin intake
-    chassis.moveToPoint(-18.543,-39.781,1000, {.maxSpeed=70}); //move forward to intake ring
+    chassis.moveToPoint(-18.543,-42.781,1000, {.maxSpeed=70}); //move forward to intake ring
     pros::delay(1000); //stop for 1 second
     twoStage.brake();
     intake.brake();  //stop intake
-    chassis.turnToPoint(-23.469,-26.848,600, {.forwards = false, .maxSpeed = 70}); //turn to face mogo
-    chassis.moveToPoint(-23.389, -23.5, 1000, {.forwards = false, .maxSpeed = 60}); //move toward mogo
+    chassis.turnToPoint(-22.469,-23.848,600, {.forwards = false, .maxSpeed = 70}); //turn to face mogo
+    chassis.moveToPoint(-21, -18.5, 1000, {.forwards = false, .maxSpeed = 80}); //move toward mogo
     pros::delay(800); //stop for .8 second
     clamp.set_value(false); // clamp mogo
     twoStage.move(127);
@@ -60,7 +96,8 @@ void positiveRed(){
     pros::delay(1500);
     twoStage.brake();
     intake.brake(); //stop intake after 2 seconds
-    chassis.moveToPoint(-13.558, -10.907, 1000, {.forwards=false, .maxSpeed=60});
+    //chassis.moveToPoint(-13.558, -10.907, 1000, {.forwards=false, .maxSpeed=60});
+    */
 }
 
 void negativeBlueMatch(){

@@ -4,21 +4,24 @@
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
 
 //Motors
-pros::Motor intake(-15, pros::MotorGearset::green);
-pros::Motor twoStage(13, pros::MotorGearset::green);
-pros::Motor lift(20, pros::MotorGearset::red);
+pros::Motor intake(-3, pros::MotorGearset::green);
+pros::Motor twoStage(2, pros::MotorGearset::green);
+pros::Motor lift(1, pros::MotorGearset::red);
 
 //Motor Groups
-pros::MotorGroup driveLeft({-11,-12,-14}, pros::MotorGearset::blue);
-pros::MotorGroup driveRight({16,17,19}, pros::MotorGearset::blue);
+pros::MotorGroup driveLeft({-20,-8,-10}, pros::MotorGearset::blue);
+pros::MotorGroup driveRight({6,9,7}, pros::MotorGearset::blue);
 
 // Sensors
-pros::Imu imu(10);
+pros::Imu imu(21);
 
 //ADI DIGITAL OUTPUT
 pros::adi::DigitalOut clamp('D');
 pros::adi::DigitalOut wing('A');
 pros::adi::DigitalOut piston('H');
+
+//Sensors
+pros::Rotation ladyBrown(11);
 
 
 // drivetrain settings

@@ -3,4 +3,8 @@
 
 void setLift();
 
-void openPiston();
+void setLadyBrown();
+
+void updateArmState();
+
+void correctArmAngle();

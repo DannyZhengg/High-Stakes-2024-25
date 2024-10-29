@@ -9,7 +9,8 @@ void initialize() {
 	controller.set_text(1,0, "Hi Jackson");
 	driveLeft.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
 	driveRight.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
-	wing.set_value(false);
+	piston.set_value(false);
+	ladyBrown.reset_position();
 }
 
 void disabled() {}
@@ -50,7 +51,9 @@ void opcontrol() {
 	pros::Task intake(setIntake);
 	pros::Task clamp(setClamp);
 	pros::Task lift(setLift);
-	pros::Task piston(openPiston);
+	pros::Task ladyBrown(setLadyBrown);
+	//pros::Task updateArmState(updateArmState);
+	//pros::Task correctArm(correctArmAngle);
 
 	while (true) {
 		// get left y and right x positions
