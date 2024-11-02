@@ -17,7 +17,7 @@ pros::Imu imu(21);
 
 //ADI DIGITAL OUTPUT
 pros::adi::DigitalOut clamp('D');
-pros::adi::DigitalOut wing('A');
+pros::adi::DigitalOut doinker('A');
 pros::adi::DigitalOut piston('H');
 
 //Sensors

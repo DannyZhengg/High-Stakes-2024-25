@@ -1,18 +1,17 @@
 #include "main.h"
-#include "subsystemHeaders/global.hpp"
 
 // PID Constants (tune these for your specific system)
 const float Kp = 1;   // Proportional gain
 const float Ki = 0;  // Integral gain
 const float Kd = 0;   // Derivative gain
 
-const int POSITION_TOLERANCE =100;   // Position tolerance in centidegrees (e.g., 0.5 degrees)
+const int POSITION_TOLERANCE =150;   // Position tolerance in centidegrees (e.g., 1 degrees)
 const int MAX_OUTPUT = 100;          // Max motor speed (adjust if necessary)
 
 // Target positions for the arm
 const int ARM_POSITION_DOWN = 0;
-const int ARM_POSITION_RIGHT = 4500; // Adjust as needed
-const int ARM_POSITION_UP = 20000;   // Adjust as needed
+const int ARM_POSITION_RIGHT = 9000; // Adjust as needed
+const int ARM_POSITION_UP = 30000;   // Adjust as needed
 
 // PID control function
 void moveArmToPosition(int targetPosition) {
@@ -26,7 +25,8 @@ void moveArmToPosition(int targetPosition) {
 
         // Check if within tolerance range
         if (std::abs(error) <= POSITION_TOLERANCE) {
-            lift.move_velocity(0);  // Stop motor
+            lift.brake();  // Stop motor
+            //  pros::lcd::print(0, "Arm reached target position");  // Confirm target reached
             break;
         }
 
@@ -38,9 +38,21 @@ void moveArmToPosition(int targetPosition) {
         int output = (Kp * error) + (Ki * integral) + (Kd * derivative);
 
         // Limit the output to the max motor speed range
-        output = std::clamp(output, -MAX_OUTPUT, MAX_OUTPUT);
+        output = std::clamp(output, -MAX_OUTPUT, MAX_OUTPUT); //maybe delete this
 
         lift.move_velocity(-output);  // Apply the PID output as motor velocity
+
+        /*       
+         // Print PID variables to brain screen
+        pros::lcd::clear_line(0);  // Clear line 0
+        pros::lcd::print(0, "Error: %d", error);
+        pros::lcd::clear_line(1);  // Clear line 1
+        pros::lcd::print(1, "Integral: %d", integral);
+        pros::lcd::clear_line(2);  // Clear line 2
+        pros::lcd::print(2, "Derivative: %d", derivative);
+        pros::lcd::clear_line(3);  // Clear line 3
+        pros::lcd::print(3, "Output: %d", output);
+        */
 
         pros::delay(20);  // Small delay to prevent excessive loop speed
     }
@@ -49,20 +61,18 @@ void moveArmToPosition(int targetPosition) {
 void setLadyBrown(){
     while(true){
                 // Check controller buttons to set the target position
-        if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_DOWN)) {
+        if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_DOWN)) {
             moveArmToPosition(ARM_POSITION_DOWN);
         } 
-        else if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
+        else if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_RIGHT)) {
             moveArmToPosition(ARM_POSITION_RIGHT);
         } 
-        else if (controller.get_digital(pros::E_CONTROLLER_DIGITAL_UP)) {
+        else if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_UP)) {
             moveArmToPosition(ARM_POSITION_UP);
         }
         pros::delay(20);
     }
  }
-
-
 
 void setLift(){
     while(true){

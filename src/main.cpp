@@ -11,6 +11,18 @@ void initialize() {
 	driveRight.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
 	piston.set_value(false);
 	ladyBrown.reset_position();
+	/*
+		pros::Task screen_task([&]() {
+        while (true) {
+            // print robot location to the brain screen
+            pros::lcd::print(0, "X: %f", chassis.getPose().x); // x
+            pros::lcd::print(1, "Y: %f", chassis.getPose().y); // y
+            pros::lcd::print(2, "Theta: %f", chassis.getPose().theta); // heading
+            // delay to save resources
+            pros::delay(20);
+        }
+    });
+	*/
 }
 
 void disabled() {}
@@ -23,8 +35,8 @@ void autonomous() {
 	lift.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
 
 	//positiveBlue();
-	positiveRed();
-	//negativeBlueMatch();
+	//positiveRed();
+	negativeBlueMatch();
 	//negativeRedMatch();
 	//skills();
 }
@@ -47,13 +59,11 @@ void opcontrol() {
 	driveRight.set_brake_mode(pros::E_MOTOR_BRAKE_COAST);
 	lift.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
 
-	pros::Task wing(setWing);
+	pros::Task doinker(setDoinker);
 	pros::Task intake(setIntake);
 	pros::Task clamp(setClamp);
 	pros::Task lift(setLift);
 	pros::Task ladyBrown(setLadyBrown);
-	//pros::Task updateArmState(updateArmState);
-	//pros::Task correctArm(correctArmAngle);
 
 	while (true) {
 		// get left y and right x positions

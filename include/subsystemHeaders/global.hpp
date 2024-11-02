@@ -14,7 +14,7 @@ extern pros::MotorGroup driveRight;
 
 // ADI Digital Outputs
 extern pros::adi::DigitalOut clamp;
-extern pros::adi::DigitalOut wing;
+extern pros::adi::DigitalOut doinker;
 extern pros::adi::DigitalOut piston;
 
 // Inertial Sensor

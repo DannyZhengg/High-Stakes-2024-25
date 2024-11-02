@@ -1,4 +1,4 @@
-bin/subsystemFiles/global.cpp.o: src/subsystemFiles/global.cpp \
+bin/subsystemFiles/doinker.cpp.o: src/subsystemFiles/doinker.cpp \
  include/main.h include/api.h include/pros/adi.h include/pros/colors.h \
  include/pros/device.h include/pros/distance.h include/pros/error.h \
  include/pros/ext_adi.h include/pros/adi.h include/pros/adi.h \

@@ -143,7 +143,7 @@ bin/subsystemFiles/lift.cpp.o: src/subsystemFiles/lift.cpp include/main.h \
  include/lemlib/logger/telemetrySink.hpp \
  include/subsystemHeaders/global.hpp include/subsystemHeaders/intake.hpp \
  include/subsystemHeaders/auton.hpp include/subsystemHeaders/clamp.hpp \
- include/subsystemHeaders/wing.hpp include/subsystemHeaders/lift.hpp
+ include/subsystemHeaders/doinker.hpp include/subsystemHeaders/lift.hpp
 include/main.h:
 include/api.h:
 include/pros/adi.h:
@@ -385,5 +385,5 @@ include/subsystemHeaders/global.hpp:
 include/subsystemHeaders/intake.hpp:
 include/subsystemHeaders/auton.hpp:
 include/subsystemHeaders/clamp.hpp:
-include/subsystemHeaders/wing.hpp:
+include/subsystemHeaders/doinker.hpp:
 include/subsystemHeaders/lift.hpp:

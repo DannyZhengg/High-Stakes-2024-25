@@ -76,7 +76,7 @@ void opcontrol(void);
 #include "subsystemHeaders/intake.hpp"
 #include "subsystemHeaders/auton.hpp"
 #include "subsystemHeaders/clamp.hpp"
-#include "subsystemHeaders/wing.hpp"
+#include "subsystemHeaders/doinker.hpp"
 #include "subsystemHeaders/lift.hpp"
 
 
