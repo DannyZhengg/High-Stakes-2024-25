@@ -23,6 +23,9 @@ void moveArmToPosition(int targetPosition) {
         int currentPosition = ladyBrown.get_position();
         error = targetPosition - currentPosition;
 
+        // pros::lcd::clear_line(4);
+        // pros::lcd::print(4, "Current Position: %d", currentPosition);
+
         // Check if within tolerance range
         if (std::abs(error) <= POSITION_TOLERANCE) {
             lift.brake();  // Stop motor

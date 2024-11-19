@@ -1,4 +1,5 @@
 #include "main.h"
+#include "subsystemHeaders/global.hpp"
 
 void on_center_button() {}
 
@@ -9,9 +10,7 @@ void initialize() {
 	controller.set_text(1,0, "Hi Jackson");
 	driveLeft.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
 	driveRight.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
-	piston.set_value(false);
 	ladyBrown.reset_position();
-	/*
 		pros::Task screen_task([&]() {
         while (true) {
             // print robot location to the brain screen
@@ -22,7 +21,6 @@ void initialize() {
             pros::delay(20);
         }
     });
-	*/
 }
 
 void disabled() {}
