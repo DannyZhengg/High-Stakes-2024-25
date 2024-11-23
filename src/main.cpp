@@ -33,8 +33,8 @@ void autonomous() {
 	lift.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
 
 	//positiveBlue();
-	//positiveRed();
-	negativeBlueMatch();
+	positiveRed();
+	//negativeBlueMatch();
 	//negativeRedMatch();
 	//skills();
 }

@@ -5,7 +5,7 @@
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
 
 //Motors
-pros::Motor intake(-3, pros::MotorGearset::green);
+pros::Motor intake(-3, pros::MotorGearset::blue);
 pros::Motor lift(1, pros::MotorGearset::red);
 
 //Motor Groups

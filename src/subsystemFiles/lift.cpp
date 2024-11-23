@@ -44,19 +44,7 @@ void moveArmToPosition(int targetPosition) {
         output = std::clamp(output, -MAX_OUTPUT, MAX_OUTPUT); //maybe delete this
 
         lift.move_velocity(-output);  // Apply the PID output as motor velocity
-
-        /*       
-         // Print PID variables to brain screen
-        pros::lcd::clear_line(0);  // Clear line 0
-        pros::lcd::print(0, "Error: %d", error);
-        pros::lcd::clear_line(1);  // Clear line 1
-        pros::lcd::print(1, "Integral: %d", integral);
-        pros::lcd::clear_line(2);  // Clear line 2
-        pros::lcd::print(2, "Derivative: %d", derivative);
-        pros::lcd::clear_line(3);  // Clear line 3
-        pros::lcd::print(3, "Output: %d", output);
-        */
-
+        
         pros::delay(20);  // Small delay to prevent excessive loop speed
     }
 }
