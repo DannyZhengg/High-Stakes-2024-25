@@ -1,9 +1,10 @@
 bin/subsystemFiles/intake.cpp.o: src/subsystemFiles/intake.cpp \
- include/main.h include/api.h include/pros/adi.h include/pros/colors.h \
- include/pros/device.h include/pros/distance.h include/pros/error.h \
- include/pros/ext_adi.h include/pros/adi.h include/pros/adi.h \
- include/pros/gps.h include/pros/imu.h include/pros/link.h \
- include/pros/llemu.h include/liblvgl/llemu.h include/liblvgl/lvgl.h \
+ include/subsystemHeaders/intake.hpp include/main.h include/api.h \
+ include/pros/adi.h include/pros/colors.h include/pros/device.h \
+ include/pros/distance.h include/pros/error.h include/pros/ext_adi.h \
+ include/pros/adi.h include/pros/adi.h include/pros/gps.h \
+ include/pros/imu.h include/pros/link.h include/pros/llemu.h \
+ include/liblvgl/llemu.h include/liblvgl/lvgl.h \
  include/liblvgl/misc/lv_log.h include/liblvgl/lv_conf_internal.h \
  include/liblvgl/lv_conf_kconfig.h include/liblvgl/lv_conf.h \
  include/liblvgl/misc/lv_types.h include/liblvgl/misc/lv_timer.h \
@@ -141,9 +142,10 @@ bin/subsystemFiles/intake.cpp.o: src/subsystemFiles/intake.cpp \
  include/fmt/args.h include/lemlib/logger/message.hpp \
  include/lemlib/logger/infoSink.hpp \
  include/lemlib/logger/telemetrySink.hpp \
- include/subsystemHeaders/global.hpp include/subsystemHeaders/intake.hpp \
- include/subsystemHeaders/auton.hpp include/subsystemHeaders/clamp.hpp \
- include/subsystemHeaders/doinker.hpp include/subsystemHeaders/lift.hpp
+ include/subsystemHeaders/global.hpp include/subsystemHeaders/auton.hpp \
+ include/subsystemHeaders/clamp.hpp include/subsystemHeaders/doinker.hpp \
+ include/subsystemHeaders/lift.hpp
+include/subsystemHeaders/intake.hpp:
 include/main.h:
 include/api.h:
 include/pros/adi.h:
@@ -382,7 +384,6 @@ include/lemlib/logger/message.hpp:
 include/lemlib/logger/infoSink.hpp:
 include/lemlib/logger/telemetrySink.hpp:
 include/subsystemHeaders/global.hpp:
-include/subsystemHeaders/intake.hpp:
 include/subsystemHeaders/auton.hpp:
 include/subsystemHeaders/clamp.hpp:
 include/subsystemHeaders/doinker.hpp:

@@ -1,12 +1,25 @@
 #pragma once
 #include "main.h"
 
-void positiveBlue();
+void positiveBlueAWP();
 
-void positiveRed();
+void positiveRedAWP();
 
-void negativeBlueMatch();
+void negativeBlueAWP();
 
-void negativeRedMatch();
+void negativeRedAWP();
+
+void redSoloAWP();
+
+void blueSoloAWP();
+
+void redDoinkerRush();
+
+void blueDoinkerRush();
+
+void redSixRings();
+
+void blueSixRings();
 
 void skills();
+

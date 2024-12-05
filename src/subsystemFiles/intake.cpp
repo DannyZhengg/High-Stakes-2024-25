@@ -1,9 +1,37 @@
+#include "subsystemHeaders/intake.hpp"
 #include "main.h"
 #include "pros/misc.h"
 #include "subsystemHeaders/global.hpp"
 
+//220 = blue
+//13 = red
+
+const int opponentColorHue = 220;
+const int colorTolerance = 30; //30 for blue //8 for red
+
+bool colorSortStatus = false;
+
+void colorStart(){
+    colorSortStatus = true;
+}
+
+void colorStop(){
+    colorSortStatus = false;
+}
+
 void colorSort(){
-    while(true){}
+    while(true){
+        if(colorSortStatus){
+            int hue = colorSensor.get_hue();
+            if (hue >= opponentColorHue - colorTolerance && hue <= opponentColorHue + colorTolerance){
+                pros::delay(200);
+                intake.move(-127);
+                pros::delay(100);
+                intake.move(127);
+            }
+            pros::delay(20);
+        }
+    }
 }
 
 void setIntake(){

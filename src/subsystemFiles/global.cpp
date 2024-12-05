@@ -5,7 +5,7 @@
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
 
 //Motors
-pros::Motor intake(-3, pros::MotorGearset::blue);
+pros::Motor intake(-3, pros::MotorGearset::green);
 pros::Motor lift(1, pros::MotorGearset::red);
 
 //Motor Groups
@@ -17,12 +17,12 @@ pros::Imu imu(21);
 
 //ADI DIGITAL OUTPUT
 pros::adi::DigitalOut clamp('D');
-pros::adi::DigitalOut doinker('A');
+pros::adi::DigitalOut doinker('C');
 pros::adi::DigitalOut twoStage('B');
 
 //Sensors
 pros::Rotation ladyBrown(11);
-pros::Optical colorSensor(12);
+pros::Optical colorSensor(4);
 pros::Distance distanceSensor(13);
 
 

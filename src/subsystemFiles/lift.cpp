@@ -1,11 +1,12 @@
 #include "main.h"
+#include "subsystemHeaders/global.hpp"
 
 // PID Constants (tune these for your specific system)
 const float Kp = 1;   // Proportional gain
 const float Ki = 0;  // Integral gain
 const float Kd = 0;   // Derivative gain
 
-const int POSITION_TOLERANCE =150;   // Position tolerance in centidegrees (e.g., 1 degrees)
+const int POSITION_TOLERANCE = 150;   // Position tolerance in centidegrees (e.g., 1 degrees)
 const int MAX_OUTPUT = 100;          // Max motor speed (adjust if necessary)
 
 // Target positions for the arm
