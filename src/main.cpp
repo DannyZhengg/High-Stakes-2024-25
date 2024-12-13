@@ -34,13 +34,16 @@ void autonomous() {
 	driveLeft.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
 	driveRight.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
 	lift.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
+	//driveForward();
+	//red2Pos();
+	//blue2Pos();
 	//positiveBlueAWP();
 	//positiveRedAWP();
 	//negativeBlueAWP();
-	negativeRedAWP();
+	//negativeRedAWP();
 	//redSoloAWP();
 	//blueSoloAWP();
-	//redDoinkerRush();
+	redDoinkerRush();
 	//blueDoinkerRush();
 	//redSixRings();
 	//blueSixRings();
@@ -72,6 +75,7 @@ void opcontrol() {
 	pros::Task clamp(setClamp);
 	pros::Task lift(setLift);
 	pros::Task ladyBrown(setLadyBrown);
+	pros::Task secondLadyBrown(liftControlTask);
 
 	while (true) {
 		// get left y and right x positions

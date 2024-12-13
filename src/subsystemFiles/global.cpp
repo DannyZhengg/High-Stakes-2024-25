@@ -25,11 +25,21 @@ pros::Rotation ladyBrown(11);
 pros::Optical colorSensor(4);
 pros::Distance distanceSensor(13);
 
+//Arm PID
+
+lemlib::PID armPID(
+    5,
+    0,
+    20,
+    5,
+    false
+);
+
 
 // drivetrain settings
 lemlib::Drivetrain drivetrain(&driveLeft, // left motor group
                               &driveRight, // right motor group
-                              15, // 15 inch track width
+                              12, // 12 inch track width
                               lemlib::Omniwheel::NEW_275, // using new 2.75" omnis
                               450, // drivetrain rpm is 450
                               2 // horizontal drift is 2 (for now)

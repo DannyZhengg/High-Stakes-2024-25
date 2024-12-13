@@ -7,7 +7,7 @@
 //13 = red
 
 const int opponentColorHue = 220;
-const int colorTolerance = 30; //30 for blue //8 for red
+const int colorTolerance =30;
 
 bool colorSortStatus = false;
 

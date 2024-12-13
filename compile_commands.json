@@ -485,11 +485,11 @@
             "-funwind-tables",
             "--std=gnu++20",
             "-o",
-            "bin/subsystemFiles/auton.cpp.o",
-            "src\\subsystemFiles\\auton.cpp"
+            "bin/subsystemFiles/intake.cpp.o",
+            "src\\subsystemFiles\\intake.cpp"
         ],
         "directory": "C:\\High-Stakes-2024-25",
-        "file": "src\\subsystemFiles\\auton.cpp"
+        "file": "src\\subsystemFiles\\intake.cpp"
     },
     {
         "arguments": [
@@ -526,10 +526,10 @@
             "-funwind-tables",
             "--std=gnu++20",
             "-o",
-            "bin/subsystemFiles/intake.cpp.o",
-            "src\\subsystemFiles\\intake.cpp"
+            "bin/subsystemFiles/auton.cpp.o",
+            "src\\subsystemFiles\\auton.cpp"
         ],
         "directory": "C:\\High-Stakes-2024-25",
-        "file": "src\\subsystemFiles\\intake.cpp"
+        "file": "src\\subsystemFiles\\auton.cpp"
     }
 ]

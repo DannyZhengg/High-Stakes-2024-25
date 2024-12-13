@@ -1,6 +1,12 @@
 #pragma once
 #include "main.h"
 
+void driveForward();
+
+void blue2Pos();
+
+void red2Pos();
+
 void positiveBlueAWP();
 
 void positiveRedAWP();

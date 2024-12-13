@@ -19,6 +19,8 @@ extern pros::adi::DigitalOut twoStage;
 // Inertial Sensor
 extern pros::Imu imu;
 
+extern lemlib::PID armPID;
+
 //Sensors
 extern pros::Rotation ladyBrown;
 extern pros::Optical colorSensor;

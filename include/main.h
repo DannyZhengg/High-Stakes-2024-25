@@ -78,7 +78,7 @@ void opcontrol(void);
 #include "subsystemHeaders/clamp.hpp"
 #include "subsystemHeaders/doinker.hpp"
 #include "subsystemHeaders/lift.hpp"
-
+#include "subsystemHeaders/ladybrown.hpp"
 
 /**
  * You can add C++-only headers here

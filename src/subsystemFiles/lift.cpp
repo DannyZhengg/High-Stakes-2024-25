@@ -2,16 +2,15 @@
 #include "subsystemHeaders/global.hpp"
 
 // PID Constants (tune these for your specific system)
-const float Kp = 1;   // Proportional gain
+const float Kp = 1.2;   // Proportional gain
 const float Ki = 0;  // Integral gain
-const float Kd = 0;   // Derivative gain
+const float Kd = .95;   // Derivative gain
 
-const int POSITION_TOLERANCE = 150;   // Position tolerance in centidegrees (e.g., 1 degrees)
-const int MAX_OUTPUT = 100;          // Max motor speed (adjust if necessary)
+const int POSITION_TOLERANCE = 250;   // Position tolerance in centidegrees (e.g., 1 degrees)
 
 // Target positions for the arm
 const int ARM_POSITION_DOWN = 0;
-const int ARM_POSITION_RIGHT = 9000; // Adjust as needed
+const int ARM_POSITION_RIGHT = 11000; // Adjust as needed
 const int ARM_POSITION_UP = 30000;   // Adjust as needed
 
 // PID control function
@@ -41,12 +40,9 @@ void moveArmToPosition(int targetPosition) {
 
         int output = (Kp * error) + (Ki * integral) + (Kd * derivative);
 
-        // Limit the output to the max motor speed range
-        output = std::clamp(output, -MAX_OUTPUT, MAX_OUTPUT); //maybe delete this
-
-        lift.move_velocity(-output);  // Apply the PID output as motor velocity
+        lift.move(-output);  // Apply the PID output as motor velocity
         
-        pros::delay(20);  // Small delay to prevent excessive loop speed
+        pros::delay(10);  // Small delay to prevent excessive loop speed
     }
 }
 
