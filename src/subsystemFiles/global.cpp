@@ -1,5 +1,6 @@
 #include "subsystemHeaders/global.hpp"
 #include "main.h"
+#include "pros/adi.hpp"
 
 //Controller
 pros::Controller controller(pros::E_CONTROLLER_MASTER);
@@ -26,11 +27,10 @@ pros::Optical colorSensor(4);
 pros::Distance distanceSensor(13);
 
 //Arm PID
-
 lemlib::PID armPID(
-    5,
+    1,
     0,
-    20,
+    0,
     5,
     false
 );
@@ -39,7 +39,7 @@ lemlib::PID armPID(
 // drivetrain settings
 lemlib::Drivetrain drivetrain(&driveLeft, // left motor group
                               &driveRight, // right motor group
-                              12, // 12 inch track width
+                              15, // 12 inch track width
                               lemlib::Omniwheel::NEW_275, // using new 2.75" omnis
                               450, // drivetrain rpm is 450
                               2 // horizontal drift is 2 (for now)

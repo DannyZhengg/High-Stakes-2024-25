@@ -1,6 +1,43 @@
 #include "main.h"
 #include "subsystemHeaders/global.hpp"
 
+/*
+const double BOTTOM_POSITION = 6530;
+const double MIDDLE_POSITION = 9000;
+const double TOP_POSITION = 24000;
+
+void moveArmToPosition(double targetPosition){
+    double currentArmPosition = ladyBrown.get_angle();
+    double error = targetPosition - currentArmPosition;
+
+    const double deadband = 10;
+    if (std::abs(error) < deadband) {
+        lift.move_voltage(0);
+        return;
+    }
+
+    double power = armPID.update(error);
+
+    power = std::clamp(power, -12000.0, 12000.0);
+
+    lift.move_voltage(power);
+}
+
+void moveArmToBottom(){
+    moveArmToPosition(BOTTOM_POSITION);
+}
+
+
+void moveArmToMiddle(){
+    moveArmToPosition(MIDDLE_POSITION);
+}
+
+
+void moveArmToTop(){
+    moveArmToPosition(TOP_POSITION);
+}
+*/
+
 // PID Constants (tune these for your specific system)
 const float Kp = 1.2;   // Proportional gain
 const float Ki = 0;  // Integral gain
@@ -48,7 +85,7 @@ void moveArmToPosition(int targetPosition) {
 
 void setLadyBrown(){
     while(true){
-                // Check controller buttons to set the target position
+        // Check controller buttons to set the target position
         if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_DOWN)) {
             moveArmToPosition(ARM_POSITION_DOWN);
         } 
@@ -58,7 +95,7 @@ void setLadyBrown(){
         else if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_UP)) {
             moveArmToPosition(ARM_POSITION_UP);
         }
-        pros::delay(20);
+        pros::delay(10);
     }
  }
 

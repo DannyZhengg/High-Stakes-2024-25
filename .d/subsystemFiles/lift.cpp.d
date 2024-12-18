@@ -140,10 +140,13 @@ bin/subsystemFiles/lift.cpp.o: src/subsystemFiles/lift.cpp include/main.h \
  include/fmt/format-inl.h include/lemlib/logger/baseSink.hpp \
  include/fmt/args.h include/lemlib/logger/message.hpp \
  include/lemlib/logger/infoSink.hpp \
- include/lemlib/logger/telemetrySink.hpp \
+ include/lemlib/logger/telemetrySink.hpp include/robodash/api.h \
+ include/robodash/core.h include/robodash/views/console.hpp \
+ include/robodash/views/image.hpp include/robodash/views/selector.hpp \
  include/subsystemHeaders/global.hpp include/subsystemHeaders/intake.hpp \
  include/subsystemHeaders/auton.hpp include/subsystemHeaders/clamp.hpp \
- include/subsystemHeaders/doinker.hpp include/subsystemHeaders/lift.hpp
+ include/subsystemHeaders/doinker.hpp include/subsystemHeaders/lift.hpp \
+ include/subsystemHeaders/ladybrown.hpp
 include/main.h:
 include/api.h:
 include/pros/adi.h:
@@ -381,9 +384,15 @@ include/fmt/args.h:
 include/lemlib/logger/message.hpp:
 include/lemlib/logger/infoSink.hpp:
 include/lemlib/logger/telemetrySink.hpp:
+include/robodash/api.h:
+include/robodash/core.h:
+include/robodash/views/console.hpp:
+include/robodash/views/image.hpp:
+include/robodash/views/selector.hpp:
 include/subsystemHeaders/global.hpp:
 include/subsystemHeaders/intake.hpp:
 include/subsystemHeaders/auton.hpp:
 include/subsystemHeaders/clamp.hpp:
 include/subsystemHeaders/doinker.hpp:
 include/subsystemHeaders/lift.hpp:
+include/subsystemHeaders/ladybrown.hpp:

@@ -1,5 +1,6 @@
 #pragma once
 #include "main.h"
+#include "pros/adi.hpp"
 
 // Controllers
 extern pros::Controller controller;

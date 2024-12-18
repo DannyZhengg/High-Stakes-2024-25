@@ -3,6 +3,12 @@
 
 void setLift();
 
+void moveArmToBottom();
+
+void moveArmToMiddle();
+
+void moveArmToTop();
+
 void setLadyBrown();
 
 void updateArmState();

@@ -4,8 +4,29 @@
 #include "subsystemHeaders/intake.hpp"
 
 void driveForward(){
-    chassis.setPose(-54.061, 60.152, 270);
-    chassis.moveToPoint(-40, 60.152, 1000, {.forwards=false});
+    pros::Task colorSortTask (colorSort);
+    colorStart();
+    clamp.set_value(true);
+    intake.move(127);
+}
+
+void red2Neg(){
+    chassis.setPose(-43.402,23.608,270);
+    chassis.moveToPoint(-17.389, 23.608, 1000, {.forwards=false, .maxSpeed=70});
+    chassis.waitUntilDone();
+    clamp.set_value(true);
+    intake.move(127);
+    pros::delay(500);
+    chassis.turnToPoint(-18.999, 47.361, 600);
+    chassis.moveToPoint(-18.999, 50.361, 1000);
+    chassis.waitUntilDone();
+    lift.move(-127);
+    pros::delay(900);
+    chassis.moveToPoint(-11.731, 8.076, 1000, {.forwards=false});
+    chassis.waitUntilDone();
+    lift.move(127);
+    pros::delay(800);
+    lift.brake();
 }
 
 void blue2Pos(){
@@ -82,7 +103,7 @@ void positiveBlueAWP(){
     intake.move(127);
     pros::delay(800);
     lift.move(-127);
-    chassis.moveToPoint(12.447, -11.545, 1300, {.forwards=false});
+    chassis.moveToPoint(12.146, -3.728, 1300, {.forwards=false});
     chassis.waitUntilDone();
     intake.brake();
     lift.move(127);
@@ -300,7 +321,7 @@ void redDoinkerRush(){
     pros::delay(300);
     intake.move(127);
     pros::delay(500);
-    chassis.moveToPoint(-50, -58, 1200);
+    chassis.moveToPoint(-50, -56.5, 1200);
     chassis.waitUntilDone();
     clamp.set_value(false);
     doinker.set_value(true);
@@ -334,7 +355,7 @@ void blueDoinkerRush(){
     clamp.set_value(false);
     chassis.waitUntilDone();
     intake.brake();
-    chassis.turnToHeading(68, 600);
+    chassis.turnToHeading(68, 600, {.maxSpeed=70});
     chassis.moveToPoint(26,-58, 1000, {.forwards=false, .maxSpeed=70});
     chassis.waitUntilDone();
     clamp.set_value(true);
@@ -422,6 +443,54 @@ void blueSixRings(){
 }
 
 void skills(){
-    pros::Task colorSortTask (colorSort);
-    colorStart();
+    chassis.setPose(-58.928,0.2, 90);
+    intake.move(127);
+    pros::delay(700);
+    intake.brake();
+    chassis.moveToPoint(-46.072,0.015,1000);
+    chassis.turnToPoint(-47.257, 23.543, 600, {.forwards=false});
+    chassis.moveToPoint(-47.257, 26.543, 1000, {.forwards=false, .maxSpeed=80});
+    pros::delay(900);
+    clamp.set_value(true);
+    pros::delay(300);
+    chassis.turnToPoint(-22.543, 24.728, 600);
+    intake.move(127);
+    chassis.moveToPoint(-20.543, 24.728, 1000, {.maxSpeed=80});
+    chassis.turnToPoint(-0.015, 60.596, 600);
+    chassis.moveToPoint(5.78, 62.078, 1500, {.maxSpeed=75});
+    pros::delay(600);
+    chassis.turnToPoint(-23.173, 46.257, 600);
+    chassis.moveToPoint(-62.263,47.227, 4500, {.maxSpeed=40});
+    chassis.turnToPoint(-47.257, 61.152, 600);
+    chassis.moveToPoint(-42.225, 62.078, 1000, {.maxSpeed=70});
+    chassis.turnToPoint(-66.154,65.968, 600, {.forwards=false});
+    chassis.moveToPoint(-66.154,65.968, 1000, {.forwards=false, .maxSpeed=60});
+    pros::delay(1200);
+    clamp.set_value(false);
+    intake.move(-127);
+    pros::delay(300);
+    intake.brake();
+    chassis.moveToPoint(-56.701, 47.257, 1000);
+    chassis.turnToPoint(-56.072, 0.2, 600, {.forwards = false});
+    chassis.moveToPoint(-56.886, 0.015,1000, {.forwards=false, .maxSpeed=80}); //First part
+    chassis.moveToPoint(-56.257, -17.543, 1000, {.forwards=false, .maxSpeed=80});
+    pros::delay(900);
+    clamp.set_value(true);
+    pros::delay(300);
+    chassis.turnToPoint(-22.543, -22.728, 600);
+    intake.move(127);
+    chassis.moveToPoint(-22.543, -23.728, 1000, {.maxSpeed=80});
+    chassis.turnToPoint(-2.794, -59.64, 600);
+    chassis.moveToPoint(-2.794, -59.64, 1500, {.maxSpeed=75});
+    pros::delay(600);
+    chassis.turnToPoint(-23.173, -43.257, 600);
+    chassis.moveToPoint(-63.263,-43.227, 4500, {.maxSpeed=40});
+    chassis.turnToPoint(-47.257, -61.152, 600);
+    chassis.moveToPoint(-42.225, 62.078, 1000, {.maxSpeed=70});
+    chassis.turnToPoint(-66.154,-65.968, 600, {.forwards=false});
+    chassis.moveToPoint(-66.154,-65.968, 1000, {.forwards=false, .maxSpeed=60});
+    pros::delay(1200);
+    clamp.set_value(false);
+    intake.brake();
+    chassis.moveToPoint(-74.465, -74.148, 1000);
 }

@@ -1,16 +1,28 @@
 #include "main.h"
+#include "pros/llemu.hpp"
+#include "subsystemHeaders/auton.hpp"
 #include "subsystemHeaders/global.hpp"
 #include "subsystemHeaders/intake.hpp"
 
-void on_center_button() {}
+rd::Selector Red_autos({
+	{"Red AWP +", &positiveRedAWP},
+	{"Red AWP -", &negativeRedAWP},
+	{"red Solo AWP", &redSoloAWP},
+	{"Red Rush", &redDoinkerRush},
+	{"Red 6", &redSixRings},
+});
+
+rd::Selector Blue_autos({
+	{"Blue AWP +", &positiveBlueAWP},
+	{"Blue AWP -", &negativeBlueAWP},
+	{"Blue Rush", &blueDoinkerRush},
+	{"Blue 6", &blueSixRings},
+});
 
 void initialize() {
-	pros::lcd::initialize(); // initialize brain screen
+	pros::lcd::initialize();
     chassis.calibrate(); // calibrate sensors
 	chassis.setPose(0,0,0);
-	controller.set_text(1,0, "Hi Jackson");
-	driveLeft.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
-	driveRight.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
 	ladyBrown.reset_position();
 	pros::Task screen_task([&]() {
         while (true) {
@@ -27,14 +39,20 @@ void initialize() {
 
 void disabled() {}
 
-void competition_initialize() {}
+void competition_initialize() {
+	//Red_autos.focus();
+	//Blue_autos.focus();
+}
 
 void autonomous() {
 	colorSensor.set_led_pwm(100);
 	driveLeft.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
 	driveRight.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
 	lift.set_brake_mode(pros::E_MOTOR_BRAKE_BRAKE);
+	//Red_autos.run_auton();
+	//Blue_autos.run_auton();
 	//driveForward();
+	//red2Neg();
 	//red2Pos();
 	//blue2Pos();
 	//positiveBlueAWP();
@@ -43,8 +61,8 @@ void autonomous() {
 	//negativeRedAWP();
 	//redSoloAWP();
 	//blueSoloAWP();
-	redDoinkerRush();
-	//blueDoinkerRush();
+	//redDoinkerRush();
+	blueDoinkerRush();
 	//redSixRings();
 	//blueSixRings();
 	//skills();
@@ -75,7 +93,6 @@ void opcontrol() {
 	pros::Task clamp(setClamp);
 	pros::Task lift(setLift);
 	pros::Task ladyBrown(setLadyBrown);
-	pros::Task secondLadyBrown(liftControlTask);
 
 	while (true) {
 		// get left y and right x positions

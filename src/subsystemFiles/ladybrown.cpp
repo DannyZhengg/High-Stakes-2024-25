@@ -5,7 +5,7 @@ Lift::Lift(pros::Motor& motor, pros::Rotation& rotation, lemlib::PID pid)
 
 float Lift::getTargetAngle() const {
     switch (m_state) {
-        case State::BOTTOM: return 290;
+        case State::BOTTOM: return 200;
         case State::MIDDLE: return 330;
         case State::TOP: return 357.5;
         default: return NAN;
@@ -23,6 +23,7 @@ float Lift::calcError() const {
 void Lift::update() {
     const float error = calcError();
     const float output = m_pid.update(error);
+    pros::lcd::print(2, "Error: %f, Output: %f", error, output);
     m_motor.move_voltage(output);
 }
 
@@ -42,7 +43,7 @@ void Lift::goDown() {
     switch (m_state) {
         case State::BOTTOM: break;
         case State::MIDDLE: m_state = State::BOTTOM; break;
-        case State::TOP: m_state = State::TOP; break;
+        case State::TOP: m_state = State::MIDDLE; break;
     }
 }
 
@@ -60,8 +61,10 @@ void liftControlTask(void* param) {
     while (true) {
         // Check if the up or down buttons are pressed
         if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_UP)) {
+            pros::lcd::print(0, "Up button pressed");
             ladyBrownArm.goUp();  // Move the lift up
         } else if (controller.get_digital_new_press(pros::E_CONTROLLER_DIGITAL_DOWN)) {
+            pros::lcd::print(1, "Down button pressed");
             ladyBrownArm.goDown();  // Move the lift down
         }
 

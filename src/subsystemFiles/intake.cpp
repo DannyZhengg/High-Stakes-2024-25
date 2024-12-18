@@ -6,8 +6,8 @@
 //220 = blue
 //13 = red
 
-const int opponentColorHue = 220;
-const int colorTolerance =30;
+const int opponentColorHue = 13;
+const int colorTolerance =10;
 
 bool colorSortStatus = false;
 

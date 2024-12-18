@@ -3,6 +3,8 @@
 
 void driveForward();
 
+void red2Neg();
+
 void blue2Pos();
 
 void red2Pos();

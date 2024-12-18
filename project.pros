@@ -1,7 +1,7 @@
 {
   "py/object": "pros.conductor.project.Project",
   "py/state": {
-    "project_name": "red rush",
+    "project_name": "new ",
     "target": "v5",
     "templates": {
       "LemLib": {
@@ -295,11 +295,36 @@
         "target": "v5",
         "user_files": [],
         "version": "8.3.8"
+      },
+      "robodash": {
+        "location": "C:\\Users\\9909 02\\AppData\\Roaming\\PROS\\templates\\robodash@2.1.2",
+        "metadata": {
+          "origin": "robodash"
+        },
+        "name": "robodash",
+        "py/object": "pros.conductor.templates.local_template.LocalTemplate",
+        "supported_kernels": "^4.1.0",
+        "system_files": [
+          "include/robodash/views/console.hpp",
+          "include/robodash/views/selector.hpp",
+          "include/robodash/impl/filesystem.h",
+          "include/robodash/impl/assets.h",
+          "include/robodash/core.h",
+          "include/robodash/apix.h",
+          "include/robodash/api.h",
+          "ASSET_FILES",
+          "include/robodash/views/image.hpp",
+          "firmware/robodash.a",
+          "include/robodash/impl/styles.h"
+        ],
+        "target": "v5",
+        "user_files": [],
+        "version": "2.1.2"
       }
     },
     "upload_options": {
-      "slot": 1,
-      "icon": "pizza"
+      "icon": "pizza",
+      "slot": 2
     },
     "use_early_access": false
   }
